@@ -11,7 +11,7 @@ permissions:
 jobs:
   prepare:
     name: Prepare
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     outputs:
       kernel_versions: ${{ steps.kernel_versions.outputs.value }}
       target_arches: ${{ steps.target_arches.outputs.value }}

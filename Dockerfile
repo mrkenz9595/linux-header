@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:24.04
 
 # Install required packages
 RUN apt-get update && \
@@ -16,6 +16,7 @@ RUN apt-get update && \
   binutils-aarch64-linux-gnu \
   gcc-aarch64-linux-gnu \
   dwarves \
+  git \
   python3
 
 # Example: 4.14.304
@@ -40,7 +41,7 @@ WORKDIR /cooper/src/linux-${KERNEL_VERSION}
 RUN cp /configs/${ARCH} .config
 RUN make ARCH=${ARCH} olddefconfig
 RUN make ARCH=${ARCH} clean
-RUN make ARCH=${ARCH} -j $(nproc) deb-pkg
+RUN make ARCH=${ARCH} -j $(nproc) bindeb-pkg
 
 # Extract headers into a tarball
 WORKDIR /cooper
