@@ -17,6 +17,7 @@ RUN apt-get update && \
   gcc-aarch64-linux-gnu \
   dwarves \
   git \
+  debhelper \
   python3
 
 # Example: 4.14.304
